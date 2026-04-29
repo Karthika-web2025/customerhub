@@ -10,7 +10,7 @@ app.use(express.json());
 let customers = [];
 let idCounter = 1;
 
-// ➕ Add customer
+// Add customer
 app.post("/customers", (req, res) => {
   const { name, email, phone } = req.body;
 
@@ -25,12 +25,12 @@ app.post("/customers", (req, res) => {
   res.status(201).json(newCustomer);
 });
 
-// 📋 Get all customers
+// Get all customers
 app.get("/customers", (req, res) => {
   res.json(customers);
 });
 
-// ❌ Delete customer
+// Delete customer
 app.delete("/customers/:id", (req, res) => {
   const id = parseInt(req.params.id);
 
