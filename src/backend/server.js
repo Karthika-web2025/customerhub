@@ -6,6 +6,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Root route
+app.get("/", (req, res) => {
+  res.send("CustomerHub Backend is running");
+});
+
 // In-memory storage
 let customers = [];
 let idCounter = 1;
@@ -38,8 +43,6 @@ app.delete("/customers/:id", (req, res) => {
 
   res.json({ message: "Customer deleted successfully" });
 });
-
-// Start server
 
 const PORT = process.env.PORT || 5000;
 

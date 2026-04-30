@@ -8,7 +8,7 @@ function CustomerForm({ onCustomerAdded }) {
   const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const API_URL = "https://customerhub-2.onrender.com/";
+  const API_URL = "https://customerhub-2.onrender.com";
 
   const handleSubmit = async (e) => {
     e.preventDefault();

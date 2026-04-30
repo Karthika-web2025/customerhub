@@ -8,19 +8,19 @@ import CustomerTable from "./frontend/components/CustomerTable";
 function App() {
   const [customers, setCustomers] = useState([]);
 
-  const API_URL = "https://customerhub-2.onrender.com/";
+  const API_URL = "https://customerhub-2.onrender.com"; 
 
   const fetchCustomers = async () => {
-    const res = await axios.get(`${API_URL}/customers`);
-    setCustomers(res.data);
+    try {
+      const res = await axios.get(`${API_URL}/customers`);
+      setCustomers(res.data);
+    } catch (error) {
+      console.error("Error fetching customers:", error);
+    }
   };
 
   useEffect(() => {
-    const timer = setTimeout(()=>{
-    fetchCustomers();
-
-    },5000)
-    return()=>clearTimeout(timer)
+    fetchCustomers(); 
   }, []);
 
   const handleDelete = async (id) => {
